@@ -87,7 +87,7 @@ export async function fetchCardData() {
     };
   } catch (error) {
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch card data.');
+    throw new Error('Failed to fetch all card data.');
   }
 }
 
@@ -186,7 +186,8 @@ export async function fetchCustomers() {
     const data = await sql<CustomerField>`
       SELECT
         id,
-        name
+        name,
+        image_url
       FROM customers
       ORDER BY name ASC
     `;
